@@ -14,8 +14,8 @@ public interface MemoDAO {
 	@Select("select * from memo order by idx desc")
 	List<MemoDTO> list();
 	
-	@Insert("insert into memo (idx, writer, memo) values ( (select nvl(max(idx)+1, 1) from memo), #{memo})")
-	public void insert(@Param("writer") String writer, @Param("memo") String memo );
+	@Insert("insert into memo (idx, writer, memo) values ( (select nvl(max(idx)+1, 1) from memo),#{writer}, #{memo})")
+	public void insert(@Param("writer") String writer, @Param("memo") String memo );	// @Param("writer") - mybatis의 변수명
 	
 	@Select("select * from memo where idx=#{idx}")
 	public MemoDTO view(@Param("idx") int idx);

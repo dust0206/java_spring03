@@ -18,12 +18,13 @@ public class MemoController {
 	@RequestMapping("/")	// 시작
 	public ModelAndView list(ModelAndView mav) {
 		List<MemoDTO> items = memoDao.list();
-		mav.setViewName("list");	// view/list.jsp
+		mav.setViewName("list");	// view/list.jsp (기본 위치)
 		mav.addObject("list", items);	// list 변수명에닥 items 데이타를 넣는다
 		return mav;
 	}
 	
 	@RequestMapping("insert.do")
+//	public String insert(@ModelAttribute MemoDTO dto) {	//@ModelAttribute 생략되어 있음 
 	public String insert(MemoDTO dto) {
 		memoDao.insert(dto.getWriter(), dto.getMemo());
 		return "redirect:/";
@@ -37,7 +38,7 @@ public class MemoController {
 	}
 	
 	@RequestMapping("update/{idx}")
-	public String update(@PathVariable int dix, MemoDTO dto) {
+	public String update(@PathVariable int idx, MemoDTO dto) {
 		memoDao.update(dto);
 		return "redirect:/";
 	}
