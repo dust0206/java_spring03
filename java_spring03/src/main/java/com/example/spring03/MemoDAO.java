@@ -17,6 +17,8 @@ public interface MemoDAO {
 	@Insert("insert into memo (idx, writer, memo) values ( (select nvl(max(idx)+1, 1) from memo),#{writer}, #{memo})")
 	public void insert(@Param("writer") String writer, @Param("memo") String memo );	// @Param("writer") - mybatis의 변수명
 	
+	
+	// 글번호(@Param("idx"))가 넘어오면 그 글번호(idx=#{idx})로 조회해서 레코드 하나를 리턴해준다
 	@Select("select * from memo where idx=#{idx}")
 	public MemoDTO view(@Param("idx") int idx);
 	

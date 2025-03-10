@@ -39,6 +39,7 @@
 			</tr>
 			<tr align="center">
 				<td colspan="2">
+					<!-- 수정, 삭제할 글번호 -->
 					<input type="hidden" name="idx" value="${dto.idx }">
 					<button type="button" id="btnUpdate">수정</button>
 					<button type="button" id="btnDelete">삭제</button>

@@ -30,6 +30,7 @@ public class MemoController {
 		return "redirect:/";
 	}
 	
+	// @PathVariable : url에 포함된 변수
 	@RequestMapping("view/{idx}")
 	public ModelAndView view(@PathVariable int idx, ModelAndView mav ) {
 		mav.setViewName("view");
